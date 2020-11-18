@@ -1,0 +1,67 @@
+<section class="login">
+    <form [formGroup]="loginForm">
+      <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-2 form-wrapper clearfix">
+        <div class="col-lg-12 input-wrapper clearfix">
+          <!-- <label for="userName">User Login Id</label> -->
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+            </div>
+            <input 
+              id="userName" 
+              formControlName="userLoginId" 
+              name="loginId" 
+              type="text" 
+              class="form-control"
+              aria-label="Username" 
+              aria-describedby="Username"
+              placeholder="Email address or phone number">
+          </div>
+        </div>
+        <div class="col-lg-12 input-wrapper clearfix">
+          <!-- <label for="password">Password</label> -->
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+            </div>
+            <input 
+              id="password" 
+              formControlName="password" 
+              name="password" 
+              [type]="showPassword ? 'text' : 'password'"
+              class="form-control" 
+              aria-label="Password" 
+              aria-describedby="Password"
+              placeholder="Password">
+            <div class="input-group-append" (click)="togglePasswordView()">
+                <span class="input-group-text" *ngIf="showPassword">
+                    <i class="fa fa-eye" ></i>
+                </span>
+                <span class="input-group-text" *ngIf="!showPassword">
+                    <i class="fa fa-eye-slash"></i>
+                </span>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-12 input-wrapper center-item-wrapper clearfix">
+          <button 
+          [disabled]="!loginForm.valid" 
+          class="btn input-block-level login-btn hover-shadow" 
+          (click)="onLogin()">
+          Log In
+        </button>
+        </div>
+        <div id ="forgot-password">
+          <a routerLink="/forgot-password">Forgotten Password?</a>
+        </div>
+        <hr>
+        <div class="col-lg-12 input-wrapper center-item-wrapper clearfix">
+            <button             
+            class="btn t-secondary create-account-btn hover-shadow" 
+            (click)="createNewAccount()">
+            Create New Account
+          </button>
+        </div>
+      </div>
+    </form>
+  </section>
